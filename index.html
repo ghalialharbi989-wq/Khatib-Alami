@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="root">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="شركة خطيب وعلمي للاستشارات الهندسية - أكثر من 50 عامًا من الابتكار والتخطيط وبناء مستقبل مستدام. Khatib & Alami Engineering Consultancy.">
+    <meta name="keywords" content="خطيب وعلمي, Khatib Alami, هندسة, استشارات, مشاريع, بنية تحتية, engineering, consultancy">
+    <title>شركة خطيب وعلمي | Khatib & Alami</title>
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#F47C20',
+                        primaryHover: '#E66A12',
+                        black: '#000000',
+                        darkGray: '#333333',
+                        lightGray: '#F5F5F5',
+                        white: '#FFFFFF',
+                    },
+                    fontFamily: {
+                        sans: ['Tajawal', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="antialiased flex flex-col min-h-screen">
+
+    <!-- Skip to Content -->
+    <a href="#main-content" class="skip-link" data-i18n="skip.content">تخطي إلى المحتوى الرئيسي</a>
+
+    <!-- Scroll Progress Bar -->
+    <div id="progress-bar" class="progress-bar" role="progressbar" aria-hidden="true"></div>
+
+    <!-- Accessibility Toolbar -->
+    <div class="a11y-toolbar" role="toolbar" aria-label="أدوات إمكانية الوصول">
+        <button id="font-increase" class="a11y-btn" data-i18n-aria="a11y.fontUp" aria-label="تكبير الخط" title="تكبير الخط">
+            <i class="fas fa-plus" aria-hidden="true"></i>
+        </button>
+        <button id="font-decrease" class="a11y-btn" data-i18n-aria="a11y.fontDown" aria-label="تصغير الخط" title="تصغير الخط">
+            <i class="fas fa-minus" aria-hidden="true"></i>
+        </button>
+        <button id="dark-mode-toggle" class="a11y-btn" data-i18n-aria="a11y.contrast" aria-label="التباين العالي" title="التباين العالي">
+            <i class="fas fa-adjust" aria-hidden="true"></i>
+        </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav fixed w-full top-0 z-50" role="navigation" aria-label="القائمة الرئيسية">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer group" onclick="navigate('home')" tabindex="0" role="button" aria-label="الصفحة الرئيسية - خطيب وعلمي">
+                    <img src="logo.png" alt="شعار خطيب وعلمي" class="h-12 w-auto me-3 bg-white p-1 rounded transition-transform group-hover:scale-105">
+                    <span class="text-black text-2xl font-extrabold tracking-wide logo-text" data-i18n="site.name">خطيب وعلمي</span>
+                </div>
+
+                <!-- Desktop Nav -->
+                <div class="hidden lg:flex items-center space-x-reverse space-x-8">
+                    <a onclick="navigate('home')" class="nav-link" data-page="home" tabindex="0" role="link" data-i18n="nav.home">الرئيسية</a>
+                    <a onclick="navigate('about')" class="nav-link" data-page="about" tabindex="0" role="link" data-i18n="nav.about">من نحن</a>
+                    <a onclick="navigate('projects')" class="nav-link" data-page="projects" tabindex="0" role="link" data-i18n="nav.projects">المشاريع</a>
+                    <a onclick="navigate('contact')" class="nav-link" data-page="contact" tabindex="0" role="link" data-i18n="nav.contact">تواصل معنا</a>
+                    <button class="lang-toggle lang-toggle-btn" aria-label="تغيير اللغة">
+                        <i class="fas fa-globe" aria-hidden="true"></i>
+                        <span data-i18n="nav.lang">English</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center gap-3">
+                    <button class="lang-toggle lang-toggle-btn !px-3 !py-2 text-sm" aria-label="تغيير اللغة">
+                        <i class="fas fa-globe" aria-hidden="true"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="text-darkGray hover:text-primary focus:outline-none p-2" aria-expanded="false" aria-controls="mobile-menu" data-i18n-aria="nav.menu" aria-label="القائمة">
+                        <i class="fas fa-bars text-2xl" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 pb-4 px-4 shadow-lg absolute w-full" role="menu">
+            <div class="flex flex-col space-y-4 pt-4">
+                <a onclick="navigate('home')" class="nav-link text-start text-lg" data-page="home" tabindex="0" role="menuitem" data-i18n="nav.home">الرئيسية</a>
+                <a onclick="navigate('about')" class="nav-link text-start text-lg" data-page="about" tabindex="0" role="menuitem" data-i18n="nav.about">من نحن</a>
+                <a onclick="navigate('projects')" class="nav-link text-start text-lg" data-page="projects" tabindex="0" role="menuitem" data-i18n="nav.projects">المشاريع</a>
+                <a onclick="navigate('contact')" class="nav-link text-start text-lg" data-page="contact" tabindex="0" role="menuitem" data-i18n="nav.contact">تواصل معنا</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content" class="flex-grow pt-20" role="main">
+
+        <!-- ============ HOME PAGE ============ -->
+        <section id="home" class="page-view active" aria-label="الصفحة الرئيسية">
+            <!-- Hero -->
+            <div class="hero-bg min-h-[85vh] flex items-center justify-center text-center relative overflow-hidden">
+                <div class="relative z-10 px-4 max-w-5xl animate-slideUp">
+                    <span class="inline-block py-1.5 px-4 rounded-full bg-primary/20 text-primary border border-primary/30 font-bold mb-5 backdrop-blur-sm" data-i18n="hero.badge">ريادة في الهندسة</span>
+                    <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
+                        <span data-i18n="hero.title">شركة خطيب وعلمي</span>
+                        <br>
+                        <span class="text-3xl md:text-5xl font-normal text-gray-300" data-i18n="hero.subtitle">للاستشارات الهندسية</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-200 mb-10 leading-relaxed max-w-3xl mx-auto font-light">
+                        <strong><span data-i18n="hero.desc.pre">أكثر من</span> <span class="text-primary font-bold text-4xl mx-1" data-i18n="hero.desc.years">50</span> <span data-i18n="hero.desc.post">عامًا من الابتكار، التخطيط، وبناء مستقبل مستدام بأعلى المعايير العالمية.</span></strong>
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                        <a href="https://api.whatsapp.com/send?phone=966126143761" target="_blank" rel="noopener noreferrer" class="bg-primary hover:bg-primaryHover text-white px-8 py-4 rounded-xl font-bold text-lg transition shadow-lg shadow-primary/30 flex items-center w-full sm:w-auto justify-center" aria-label="استفسر الآن عبر واتساب">
+                            <i class="fab fa-whatsapp me-2 text-2xl" aria-hidden="true"></i>
+                            <span data-i18n="hero.cta1">استفسر الآن</span>
+                        </a>
+                        <button onclick="navigate('projects')" class="bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white text-white hover:text-black px-8 py-4 rounded-xl font-bold text-lg transition w-full sm:w-auto" data-i18n="hero.cta2">
+                            استكشف مشاريعنا
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="py-16 bg-black text-white relative">
+                <div class="max-w-7xl mx-auto px-4">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8" id="stats-grid">
+                        <!-- Rendered by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Snippet -->
+            <div class="py-24 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex flex-col lg:flex-row items-center gap-16">
+                        <div class="lg:w-1/2 relative animate-on-scroll" data-animate="fade-right">
+                            <div class="absolute -inset-4 bg-lightGray rounded-3xl transform rotate-3"></div>
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" alt="المقر الرئيسي لشركة خطيب وعلمي" data-i18n-aria="alt.about" class="relative w-full h-[500px] object-cover rounded-2xl shadow-lg">
+                            <div class="absolute -bottom-6 -right-6 bg-primary text-white p-6 rounded-xl shadow-lg">
+                                <span class="block text-4xl font-bold">50+</span>
+                                <span class="text-sm font-medium opacity-90" data-i18n="about.exp">عاماً من الخبرة</span>
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2 animate-on-scroll" data-animate="fade-left">
+                            <h4 class="text-primary font-bold mb-2 tracking-wider" data-i18n="about.label">عن الشركة</h4>
+                            <h2 class="text-4xl md:text-5xl font-bold text-black mb-6 leading-tight">
+                                <span data-i18n="about.title1">نصمم اليوم</span> <br>
+                                <span data-i18n="about.title2">لمستقبل أفضل.</span>
+                            </h2>
+                            <p class="text-darkGray text-lg leading-relaxed mb-8" data-i18n="about.desc">
+                                خطيب وعلمي شركة استشارات هندسية رائدة تقدم حلولًا متكاملة في التصميم، التخطيط، وإدارة المشاريع. بخبرة تمتد لعقود ومعايير عالمية، نعمل على تحويل الرؤى إلى واقع ملموس يعزز البنية التحتية.
+                            </p>
+                            <button onclick="navigate('about')" class="group flex items-center gap-2 text-black font-bold hover:text-primary transition">
+                                <span class="border-b-2 border-primary pb-1" data-i18n="about.link">اقرأ المزيد عنا</span>
+                                <i class="fas fa-arrow-left transform group-hover:-translate-x-2 transition" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Projects -->
+            <div class="py-24 bg-lightGray">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex justify-between items-end mb-12">
+                        <div class="animate-on-scroll">
+                            <h4 class="text-primary font-bold mb-2 tracking-wider" data-i18n="featured.label">أعمالنا</h4>
+                            <h2 class="text-4xl font-bold text-black" data-i18n="featured.title">مشاريعنا المميزة</h2>
+                        </div>
+                        <button onclick="navigate('projects')" class="hidden md:flex items-center gap-2 text-darkGray hover:text-primary font-bold transition animate-on-scroll">
+                            <span data-i18n="featured.viewAll">عرض الكل</span> <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="featured-projects-grid">
+                        <!-- Rendered by JS -->
+                    </div>
+                    <div class="text-center mt-8 md:hidden">
+                        <button onclick="navigate('projects')" class="bg-white border border-gray-200 text-black px-6 py-3 rounded-xl font-bold w-full shadow-sm" data-i18n="featured.viewAllMobile">عرض كل المشاريع</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VR 360 Section -->
+            <div class="py-24 bg-black text-white relative overflow-hidden">
+                <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1622359218205-09bd2623a9d5?q=80&w=2000&auto=format&fit=crop')] opacity-15 bg-cover bg-center"></div>
+                <div class="absolute inset-0 bg-gradient-to-b from-black/80 to-black/40"></div>
+                <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
+                    <div class="w-20 h-20 bg-darkGray rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg border border-gray-700 animate-on-scroll">
+                        <i class="fas fa-vr-cardboard text-4xl text-primary" aria-hidden="true"></i>
+                    </div>
+                    <h2 class="text-4xl font-bold mb-4 animate-on-scroll" data-i18n="vr.title">تقنية الواقع الافتراضي 360</h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto mb-16 text-lg animate-on-scroll" data-i18n="vr.desc">
+                        استكشف مشاريعنا بتفاصيل مذهلة من خلال إطلالة بانورامية بتقنية 360 درجة. عش التجربة وكأنك في الموقع.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="vr-grid">
+                        <!-- Rendered by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ ABOUT PAGE ============ -->
+        <section id="about" class="page-view" aria-label="من نحن">
+            <div class="hero-mini-bg h-80 flex items-center justify-center text-center">
+                <div>
+                    <h1 class="text-5xl font-bold text-white drop-shadow-md mb-2" data-i18n="aboutPage.title">من نحن</h1>
+                    <p class="text-gray-300 text-lg" data-i18n="aboutPage.subtitle">تعرف على رؤيتنا ورسالتنا</p>
+                </div>
+            </div>
+
+            <!-- Company Info -->
+            <div class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex flex-col lg:flex-row items-center gap-16">
+                        <div class="lg:w-1/2 animate-on-scroll" data-animate="fade-right">
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="مبنى شركة خطيب وعلمي" class="w-full rounded-2xl shadow-lg object-cover h-[450px]">
+                                <div class="absolute -bottom-5 -left-5 w-32 h-32 bg-[radial-gradient(#F47C20_2px,transparent_2px)] [background-size:16px_16px] -z-10"></div>
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2 animate-on-scroll" data-animate="fade-left">
+                            <h2 class="text-4xl font-bold text-black mb-4" data-i18n="aboutPage.who">من هي شركة خطيب وعلمي؟</h2>
+                            <div class="section-divider"></div>
+                            <p class="text-darkGray leading-relaxed text-lg mb-6" data-i18n="aboutPage.desc1">
+                                شركة استشارات هندسية رائدة تقدم حلولًا متكاملة في التصميم، التخطيط، وإدارة المشاريع، بهدف تنفيذ مشاريع نوعية تعزز البنية التحتية وتواكب أحدث التطورات العالمية.
+                            </p>
+                            <p class="text-darkGray leading-relaxed text-lg mb-8" data-i18n="aboutPage.desc2">
+                                على مدار عقود، استطعنا بناء سمعة مبنية على الثقة، الجودة، والتسليم في الموعد المحدد، مما جعلنا الشريك المفضل للعديد من الجهات الحكومية والخاصة.
+                            </p>
+                            <a href="https://wa.me/966126143761" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-[#25D366] hover:bg-[#1ebe57] text-white px-6 py-3 rounded-xl font-bold transition shadow-md" aria-label="تواصل معنا عبر واتساب">
+                                <i class="fab fa-whatsapp text-2xl me-2" aria-hidden="true"></i>
+                                <span data-i18n="aboutPage.whatsapp">تواصل معنا عبر واتساب</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vision & Mission -->
+            <div class="py-16 bg-lightGray">
+                <div class="max-w-7xl mx-auto px-4">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="platform-card p-10 relative overflow-hidden animate-on-scroll" data-animate="fade-right">
+                            <div class="absolute top-0 right-0 w-2 h-full bg-primary"></div>
+                            <div class="w-14 h-14 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-6">
+                                <i class="fas fa-eye text-2xl" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-black mb-4" data-i18n="aboutPage.vision">رؤيتنا</h3>
+                            <p class="text-darkGray leading-relaxed text-lg" data-i18n="aboutPage.visionDesc">نحو مستقبل حضري مبتكر من خلال تقديم خدمات تتوافق مع رؤية 2030 وأهداف التنمية المستدامة، لإنشاء مجتمعات مزدهرة.</p>
+                        </div>
+                        <div class="platform-card p-10 relative overflow-hidden animate-on-scroll" data-animate="fade-left">
+                            <div class="absolute top-0 right-0 w-2 h-full bg-black"></div>
+                            <div class="w-14 h-14 bg-gray-100 text-black rounded-xl flex items-center justify-center mb-6">
+                                <i class="fas fa-bullseye text-2xl" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-black mb-4" data-i18n="aboutPage.mission">رسالتنا</h3>
+                            <p class="text-darkGray leading-relaxed text-lg" data-i18n="aboutPage.missionDesc">نقدم خدمات تخطيط وتصميم وإدارة مستدامة تلبي طموحات المجتمع، وتساهم بفعالية في تحسين جودة الحياة للجميع.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Values -->
+            <div class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4">
+                    <div class="text-center mb-16 animate-on-scroll">
+                        <h2 class="text-4xl font-bold text-black mb-4" data-i18n="aboutPage.values">قيمنا الأساسية</h2>
+                        <p class="text-darkGray" data-i18n="aboutPage.valuesDesc">المبادئ التي تقود كل قرار نتخذه</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="p-6 border border-gray-100 rounded-2xl hover:border-primary/30 hover:shadow-lg transition bg-white animate-on-scroll">
+                            <div class="w-12 h-12 bg-lightGray rounded-full flex items-center justify-center mb-4 text-primary"><i class="fas fa-handshake text-xl" aria-hidden="true"></i></div>
+                            <h4 class="font-bold text-xl mb-3 text-black" data-i18n="value.respect">الاحترام والأمانة</h4>
+                            <p class="text-darkGray text-sm leading-relaxed" data-i18n="value.respectDesc">نلتزم بالنزاهة والاحترام المتبادل في جميع تعاملاتنا الداخلية والخارجية.</p>
+                        </div>
+                        <div class="p-6 border border-gray-100 rounded-2xl hover:border-primary/30 hover:shadow-lg transition bg-white animate-on-scroll">
+                            <div class="w-12 h-12 bg-lightGray rounded-full flex items-center justify-center mb-4 text-primary"><i class="fas fa-shield-alt text-xl" aria-hidden="true"></i></div>
+                            <h4 class="font-bold text-xl mb-3 text-black" data-i18n="value.transparency">الشفافية</h4>
+                            <p class="text-darkGray text-sm leading-relaxed" data-i18n="value.transparencyDesc">نعزز ثقافة المصارحة في جميع مراحل العمل لتحقيق أفضل النتائج بشفافية تامة.</p>
+                        </div>
+                        <div class="p-6 border border-gray-100 rounded-2xl hover:border-primary/30 hover:shadow-lg transition bg-white animate-on-scroll">
+                            <div class="w-12 h-12 bg-lightGray rounded-full flex items-center justify-center mb-4 text-primary"><i class="fas fa-chart-line text-xl" aria-hidden="true"></i></div>
+                            <h4 class="font-bold text-xl mb-3 text-black" data-i18n="value.added">القيمة المضافة</h4>
+                            <p class="text-darkGray text-sm leading-relaxed" data-i18n="value.addedDesc">نضيف لعملائنا قيمة ملموسة تعزز من جودة مشاريعهم وتحسن من العائد الاستثماري.</p>
+                        </div>
+                        <div class="p-6 border border-gray-100 rounded-2xl hover:border-primary/30 hover:shadow-lg transition bg-white animate-on-scroll">
+                            <div class="w-12 h-12 bg-lightGray rounded-full flex items-center justify-center mb-4 text-primary"><i class="fas fa-lightbulb text-xl" aria-hidden="true"></i></div>
+                            <h4 class="font-bold text-xl mb-3 text-black" data-i18n="value.innovation">الإبداع والتطوير</h4>
+                            <p class="text-darkGray text-sm leading-relaxed" data-i18n="value.innovationDesc">نؤمن بأهمية التطوير المستمر ومواكبة الابتكار في الحلول الهندسية.</p>
+                        </div>
+                        <div class="p-6 border border-gray-100 rounded-2xl hover:border-primary/30 hover:shadow-lg transition bg-white md:col-span-2 animate-on-scroll">
+                            <div class="w-12 h-12 bg-lightGray rounded-full flex items-center justify-center mb-4 text-primary"><i class="fas fa-leaf text-xl" aria-hidden="true"></i></div>
+                            <h4 class="font-bold text-xl mb-3 text-black" data-i18n="value.quality">الجودة والاستدامة</h4>
+                            <p class="text-darkGray text-sm leading-relaxed" data-i18n="value.qualityDesc">نلتزم بأعلى معايير الجودة لتحقيق مشاريع مستدامة وصديقة للبيئة تدوم لأجيال قادمة وتحافظ على الموارد.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Partners -->
+            <div class="py-16 bg-white border-t border-gray-100 partners-section">
+                <div class="max-w-7xl mx-auto px-4 text-center">
+                    <h2 class="text-2xl font-bold text-black mb-8 animate-on-scroll" data-i18n="partners.title">شركاؤنا في النجاح</h2>
+                    <div class="max-w-4xl mx-auto">
+                        <img src="partners.png" class="partners-img mx-auto animate-on-scroll" data-animate="zoom-in" alt="شركاؤنا في النجاح - خطيب وعلمي">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ PROJECTS PAGE ============ -->
+        <section id="projects" class="page-view" aria-label="المشاريع">
+            <div class="hero-mini-bg h-80 flex items-center justify-center text-center">
+                <div>
+                    <h1 class="text-5xl font-bold text-white drop-shadow-md mb-2" data-i18n="projectsPage.title">المشاريع</h1>
+                    <p class="text-gray-300 text-lg" data-i18n="projectsPage.subtitle">سجل حافل بالنجاحات عبر مختلف القطاعات</p>
+                </div>
+            </div>
+
+            <div class="py-20 bg-lightGray min-h-screen">
+                <div class="max-w-7xl mx-auto px-4">
+                    <!-- Filter Buttons -->
+                    <div class="flex flex-wrap gap-3 justify-center md:justify-start mb-12 animate-on-scroll" id="filter-buttons">
+                        <button class="filter-btn active px-6 py-2.5 rounded-full border-2 border-primary text-primary font-bold text-sm bg-white hover:bg-primary hover:text-white" data-filter="all" data-i18n="filter.all">جميع المشاريع</button>
+                        <button class="filter-btn px-6 py-2.5 rounded-full border-2 border-gray-300 text-darkGray font-bold text-sm bg-white hover:border-primary hover:text-primary" data-filter="electronic-services" data-i18n="filter.electronic">الخدمات الإلكترونية</button>
+                        <button class="filter-btn px-6 py-2.5 rounded-full border-2 border-gray-300 text-darkGray font-bold text-sm bg-white hover:border-primary hover:text-primary" data-filter="architecture" data-i18n="filter.architecture">الهندسة المعمارية</button>
+                        <button class="filter-btn px-6 py-2.5 rounded-full border-2 border-gray-300 text-darkGray font-bold text-sm bg-white hover:border-primary hover:text-primary" data-filter="infrastructure" data-i18n="filter.infrastructure">البنية التحتية</button>
+                        <button class="filter-btn px-6 py-2.5 rounded-full border-2 border-gray-300 text-darkGray font-bold text-sm bg-white hover:border-primary hover:text-primary" data-filter="energy" data-i18n="filter.energy">الطاقة</button>
+                    </div>
+
+                    <!-- Projects Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="projects-grid">
+                        <!-- Rendered by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CONTACT PAGE ============ -->
+        <section id="contact" class="page-view" aria-label="تواصل معنا">
+            <div class="hero-mini-bg h-80 flex items-center justify-center text-center">
+                <div>
+                    <h1 class="text-5xl font-bold text-white drop-shadow-md mb-2" data-i18n="contactPage.title">تواصل معنا</h1>
+                    <p class="text-gray-300 text-lg" data-i18n="contactPage.subtitle">نحن هنا للإجابة على استفساراتكم وبناء شراكات جديدة</p>
+                </div>
+            </div>
+
+            <div class="py-20 bg-lightGray">
+                <div class="max-w-7xl mx-auto px-4">
+                    <div class="grid lg:grid-cols-2 gap-12">
+                        <!-- Contact Info -->
+                        <div class="animate-on-scroll" data-animate="fade-right">
+                            <h2 class="text-3xl font-bold text-black mb-6" data-i18n="contact.heading">دعنا نتحدث عن مشروعك القادم</h2>
+                            <p class="text-darkGray mb-10 leading-relaxed text-lg" data-i18n="contact.desc">
+                                فريقنا من الخبراء والمهندسين جاهز لتقديم الاستشارات الفنية والهندسية المناسبة لمتطلباتك.
+                            </p>
+                            <div class="space-y-6 mb-10">
+                                <div class="flex items-start">
+                                    <div class="w-12 h-12 bg-white rounded-full shadow-sm flex items-center justify-center text-primary shrink-0">
+                                        <i class="fas fa-map-marker-alt text-xl" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="ms-4 mt-1">
+                                        <h5 class="font-bold text-black mb-1" data-i18n="contact.office">المكتب الرئيسي</h5>
+                                        <p class="text-darkGray text-sm">King Abdul Aziz Road – King Road Tower, 17th floor</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-12 h-12 bg-white rounded-full shadow-sm flex items-center justify-center text-primary shrink-0">
+                                        <i class="fas fa-phone-alt text-xl" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="ms-4 mt-1">
+                                        <h5 class="font-bold text-black mb-1" data-i18n="contact.phone">الهاتف الموحد</h5>
+                                        <a href="tel:+966126143761" class="text-darkGray text-sm hover:text-primary transition block" dir="ltr">+966 12 6143761</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-12 h-12 bg-white rounded-full shadow-sm flex items-center justify-center text-primary shrink-0">
+                                        <i class="fas fa-envelope text-xl" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="ms-4 mt-1">
+                                        <h5 class="font-bold text-black mb-1" data-i18n="contact.email">البريد الإلكتروني</h5>
+                                        <a href="mailto:jeddah@khatibalami.com" class="text-darkGray text-sm hover:text-primary transition">jeddah@khatibalami.com</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3 class="font-bold text-black text-xl mb-4" data-i18n="contact.social">تواصل معنا عبر الشبكات</h3>
+                            <div class="flex space-x-reverse space-x-4">
+                                <a href="#" class="w-10 h-10 bg-white border border-gray-200 text-darkGray rounded-full flex items-center justify-center hover:bg-[#FFFC00] hover:text-black hover:border-transparent transition shadow-sm" aria-label="Snapchat"><i class="fab fa-snapchat" aria-hidden="true"></i></a>
+                                <a href="#" class="w-10 h-10 bg-white border border-gray-200 text-darkGray rounded-full flex items-center justify-center hover:bg-[#1877F2] hover:text-white hover:border-transparent transition shadow-sm" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                                <a href="#" class="w-10 h-10 bg-white border border-gray-200 text-darkGray rounded-full flex items-center justify-center hover:bg-black hover:text-white hover:border-transparent transition shadow-sm" aria-label="X (Twitter)"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
+                                <a href="#" class="w-10 h-10 bg-white border border-gray-200 text-darkGray rounded-full flex items-center justify-center hover:bg-[#E4405F] hover:text-white hover:border-transparent transition shadow-sm" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Contact Form -->
+                        <div class="platform-card p-8 lg:p-10 animate-on-scroll" data-animate="fade-left">
+                            <h3 class="text-2xl font-bold text-black mb-6" data-i18n="contact.formTitle">أرسل لنا رسالة</h3>
+                            <form action="https://formspree.io/f/xnnzpvnb" method="POST" class="space-y-5" novalidate>
+                                <div>
+                                    <label for="contact-name" class="block text-sm font-medium text-darkGray mb-1" data-i18n="contact.name">الاسم الكامل</label>
+                                    <input type="text" id="contact-name" name="name" required class="w-full px-4 py-3 bg-lightGray border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary focus:outline-none transition" autocomplete="name">
+                                </div>
+                                <div>
+                                    <label for="contact-email" class="block text-sm font-medium text-darkGray mb-1" data-i18n="contact.emailLabel">البريد الإلكتروني</label>
+                                    <input type="email" id="contact-email" name="email" required class="w-full px-4 py-3 bg-lightGray border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary focus:outline-none transition" autocomplete="email">
+                                </div>
+                                <div>
+                                    <label for="contact-subject" class="block text-sm font-medium text-darkGray mb-1" data-i18n="contact.subject">موضوع الرسالة</label>
+                                    <input type="text" id="contact-subject" name="subject" required class="w-full px-4 py-3 bg-lightGray border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary focus:outline-none transition">
+                                </div>
+                                <div>
+                                    <label for="contact-message" class="block text-sm font-medium text-darkGray mb-1" data-i18n="contact.message">تفاصيل الرسالة</label>
+                                    <textarea id="contact-message" name="message" rows="4" required class="w-full px-4 py-3 bg-lightGray border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary focus:outline-none transition resize-none"></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-primary hover:bg-primaryHover text-white font-bold py-4 rounded-xl transition shadow-lg shadow-primary/30 mt-2" data-i18n="contact.send">
+                                    إرسال الرسالة
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map -->
+            <div class="h-[500px] w-full">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d327023.93091065175!2d39.56138789847373!3d21.371172591214172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3cb006b2c61dd%3A0x5784bfabadaba0af!2z2LTYsdmD2Kkg2KfZhNil2KrYrdin2K8g2KfZhNmH2YbYr9iz2Yog2KfZhNiz2LnZiNiv2YrYqSAtINiu2LfZitioINmI2LnZhNmF2Yo!5e0!3m2!1sar!2ssa!4v1753217193648!5m2!1sar!2ssa" class="w-full h-full" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="موقع شركة خطيب وعلمي على الخريطة"></iframe>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-darkGray text-white py-16 border-t-[6px] border-primary" role="contentinfo">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+                <div>
+                    <h5 class="text-white text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-headset text-primary me-2" aria-hidden="true"></i>
+                        <span data-i18n="footer.contact">تواصل معنا</span>
+                    </h5>
+                    <p class="mb-3 text-gray-300 hover:text-primary transition"><i class="fas fa-envelope me-2 w-5" aria-hidden="true"></i> <a href="mailto:jeddah@khatibalami.com">jeddah@khatibalami.com</a></p>
+                    <p class="mb-3 text-gray-300 hover:text-primary transition"><i class="fas fa-phone me-2 w-5" aria-hidden="true"></i> <a href="tel:+966126143761" dir="ltr">+966 12 6143761</a></p>
+                    <p class="mb-0 text-gray-300 leading-relaxed"><i class="fas fa-map-marker-alt me-2 w-5" aria-hidden="true"></i> <a href="https://www.google.com/maps?q=King+Road+Tower,+King+Abdul+Aziz+Road" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">King Abdul Aziz Road – King Road Tower, 17th floor</a></p>
+                </div>
+                <div>
+                    <h5 class="text-white text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-link text-primary me-2" aria-hidden="true"></i>
+                        <span data-i18n="footer.links">روابط مهمة</span>
+                    </h5>
+                    <ul class="space-y-3">
+                        <li><a onclick="navigate('home')" class="cursor-pointer text-gray-300 hover:text-primary hover:ps-2 transition-all" tabindex="0" data-i18n="nav.home">الرئيسية</a></li>
+                        <li><a onclick="navigate('about')" class="cursor-pointer text-gray-300 hover:text-primary hover:ps-2 transition-all" tabindex="0" data-i18n="nav.about">من نحن</a></li>
+                        <li><a onclick="navigate('projects')" class="cursor-pointer text-gray-300 hover:text-primary hover:ps-2 transition-all" tabindex="0" data-i18n="nav.projects">المشاريع</a></li>
+                        <li><a onclick="navigate('contact')" class="cursor-pointer text-gray-300 hover:text-primary hover:ps-2 transition-all" tabindex="0" data-i18n="nav.contact">تواصل معنا</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="flex items-center mb-6">
+                        <img src="logo.png" alt="شعار خطيب وعلمي" class="h-10 w-auto me-3 bg-white p-1 rounded">
+                        <h5 class="text-white text-xl font-bold" data-i18n="site.name">خطيب وعلمي</h5>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed" data-i18n="footer.desc">نحن شركة هندسية واستشارية رائدة في المملكة، نقدم خدمات احترافية تدعم التنمية المستدامة وتحقق رؤية المملكة 2030 بأعلى معايير الجودة والتصميم.</p>
+                </div>
+            </div>
+            <hr class="border-gray-700 my-8">
+            <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p data-i18n="site.copyright">© 2025 خطيب وعلمي. جميع الحقوق محفوظة.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition" data-i18n="footer.privacy">سياسة الخصوصية</a>
+                    <a href="#" class="hover:text-white transition" data-i18n="footer.terms">الشروط والأحكام</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" data-i18n-aria="a11y.backToTop" aria-label="العودة لأعلى">
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+    </button>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="تفاصيل المشروع">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <div class="p-6 md:p-8" id="modal-project-content">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- App Script -->
+    <script src="app.js"></script>
+</body>
+</html>

@@ -314,6 +314,13 @@ body {
 }
 .project-card .view-btn:hover { background: var(--primary-hover); }
 
+/* Uniform card alignment: equal image size + bottom rows lined up */
+.project-card.project-item { display: flex; flex-direction: column; height: 100%; }
+.project-card.project-item > div:first-child { flex: 0 0 auto; }
+.project-card.project-item > div:last-child { display: flex; flex-direction: column; flex: 1 1 auto; }
+.project-card.project-item > div:last-child > div:last-child { margin-top: auto; }
+.project-card .project-image { display: block; }
+
 /* --- Filter Buttons --- */
 .filter-btn {
     transition: var(--transition);

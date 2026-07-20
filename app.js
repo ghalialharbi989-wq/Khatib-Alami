@@ -12,7 +12,7 @@
             id: 'sp-locator',
             category: 'electronic-services',
             featured: false,
-            image: 'images/projects/sp-locator.png?v=9',
+            image: 'images/projects/sp-locator.png?v=10',
             ar: { category: 'الخدمات الإلكترونية', name: 'محدد SP', location: 'السعودية', shortDesc: 'نظام تحديد المواقع الجغرافية لإدارة البنية التحتية للاتصالات.', fullDesc: 'تطوير نظام متكامل لتحديد المواقع الجغرافية يُستخدم في إدارة وتتبع البنية التحتية لشبكات الاتصالات في المملكة العربية السعودية، مما يعزز كفاءة العمليات والصيانة.' },
             en: { category: 'Electronic Services', name: 'SP Locator', location: 'Saudi Arabia', shortDesc: 'Geographic positioning system for telecom infrastructure management.', fullDesc: 'Development of an integrated geographic positioning system used to manage and track telecommunications network infrastructure in Saudi Arabia, enhancing operational and maintenance efficiency.' }
         },
@@ -20,7 +20,7 @@
             id: 'omantel-gis',
             category: 'electronic-services',
             featured: false,
-            image: 'images/projects/omantel-gis.png?v=9',
+            image: 'images/projects/omantel-gis.png?v=10',
             ar: { category: 'الخدمات الإلكترونية', name: 'أومانتيل GIS', location: 'عمان', shortDesc: 'نظام معلومات جغرافية متكامل لإدارة شبكات الاتصالات.', fullDesc: 'تطوير نظام معلومات جغرافية (GIS) متكامل لشركة عمانتل لإدارة ومراقبة شبكات الاتصالات بكفاءة عالية، مع توفير أدوات تحليل مكاني متقدمة.' },
             en: { category: 'Electronic Services', name: 'Omantel GIS', location: 'Oman', shortDesc: 'Integrated GIS system for managing telecommunications networks.', fullDesc: 'Development of a comprehensive Geographic Information System (GIS) for Omantel to efficiently manage and monitor telecommunications networks, with advanced spatial analysis tools.' }
         },
@@ -28,7 +28,7 @@
             id: 'sar-gis',
             category: 'electronic-services',
             featured: true,
-            image: 'images/projects/sar-gis.png?v=9',
+            image: 'images/projects/sar-gis.png?v=10',
             ar: { category: 'الخدمات الإلكترونية', name: 'سار GIS', location: 'قطر', shortDesc: 'نظام معلومات جغرافية لإدارة شبكة السكك الحديدية.', fullDesc: 'تصميم وتنفيذ نظام معلومات جغرافية متقدم لإدارة شبكة السكك الحديدية في قطر، يشمل تتبع الأصول وتحليل البيانات المكانية وتخطيط الصيانة.' },
             en: { category: 'Electronic Services', name: 'SAR GIS', location: 'Qatar', shortDesc: 'GIS system for railway network management.', fullDesc: 'Design and implementation of an advanced Geographic Information System for managing Qatar\'s railway network, including asset tracking, spatial data analysis, and maintenance planning.' }
         },
@@ -36,7 +36,7 @@
             id: 'lebanon-dsp',
             category: 'energy',
             featured: false,
-            image: 'images/projects/lebanon-dsp.png?v=9',
+            image: 'images/projects/lebanon-dsp.png?v=10',
             ar: { category: 'الطاقة', name: 'لبنان DSP', location: 'السعودية', shortDesc: 'تصميم وتخطيط محطات توزيع الطاقة الكهربائية.', fullDesc: 'مشروع تصميم وتخطيط محطات توزيع الطاقة الكهربائية بأحدث التقنيات والمعايير الدولية لضمان استدامة وكفاءة التوزيع الكهربائي.' },
             en: { category: 'Energy', name: 'Lebanon DSP', location: 'Saudi Arabia', shortDesc: 'Design and planning of electrical power distribution stations.', fullDesc: 'Design and planning project for electrical power distribution stations using the latest technologies and international standards to ensure sustainable and efficient power distribution.' }
         },
@@ -44,7 +44,7 @@
             id: 'baghdad-city',
             category: 'energy',
             featured: false,
-            image: 'images/projects/baghdad-city.png?v=9',
+            image: 'images/projects/baghdad-city.png?v=10',
             ar: { category: 'الطاقة', name: 'مدينة بغداد', location: 'العراق', shortDesc: 'تطوير البنية التحتية للطاقة الكهربائية في بغداد.', fullDesc: 'مشروع شامل لتطوير وتحديث البنية التحتية للطاقة الكهربائية في مدينة بغداد، يهدف إلى تحسين جودة الخدمة وزيادة قدرة الشبكة الكهربائية.' },
             en: { category: 'Energy', name: 'Baghdad City', location: 'Iraq', shortDesc: 'Electrical energy infrastructure development in Baghdad.', fullDesc: 'A comprehensive project to develop and modernize the electrical energy infrastructure in Baghdad city, aiming to improve service quality and increase grid capacity.' }
         },
@@ -52,7 +52,7 @@
             id: 'khafji-gas',
             category: 'energy',
             featured: false,
-            image: 'images/projects/khafji-gas.png?v=9',
+            image: 'images/projects/khafji-gas.png?v=10',
             ar: { category: 'الطاقة', name: 'غاز الخفجي', location: 'السعودية', shortDesc: 'تصميم وإشراف على منشآت معالجة الغاز الطبيعي.', fullDesc: 'تصميم هندسي متكامل والإشراف على تنفيذ منشآت معالجة الغاز الطبيعي في منطقة الخفجي، بما يشمل أنظمة المعالجة والتخزين والنقل.' },
             en: { category: 'Energy', name: 'Khafji Gas', location: 'Saudi Arabia', shortDesc: 'Design and supervision of natural gas processing facilities.', fullDesc: 'Comprehensive engineering design and supervision of natural gas processing facilities in the Khafji region, including processing, storage, and transportation systems.' }
         },
@@ -60,7 +60,7 @@
             id: 'mdeirej-bridge',
             category: 'infrastructure',
             featured: false,
-            image: 'images/projects/mdeirej-bridge.png?v=9',
+            image: 'images/projects/mdeirej-bridge.png?v=10',
             ar: { category: 'البنية التحتية', name: 'جسر مديرج', location: 'لبنان', shortDesc: 'تصميم وإشراف هندسي على بناء جسر مديرج الشهير.', fullDesc: 'تصميم وإشراف هندسي على بناء جسر مديرج الشهير في لبنان، أحد أبرز المعالم الهندسية في المنطقة، بطول يتجاوز عدة مئات من الأمتار.' },
             en: { category: 'Infrastructure', name: 'Mdeirej Bridge', location: 'Lebanon', shortDesc: 'Engineering design and supervision of the famous Mdeirej Bridge.', fullDesc: 'Engineering design and supervision of the iconic Mdeirej Bridge in Lebanon, one of the most prominent engineering landmarks in the region, spanning several hundred meters.' }
         },
@@ -68,7 +68,7 @@
             id: 'najran-airport',
             category: 'infrastructure',
             featured: true,
-            image: 'images/projects/najran-airport.png?v=9',
+            image: 'images/projects/najran-airport.png?v=10',
             ar: { category: 'البنية التحتية', name: 'مطار نجران', location: 'السعودية', shortDesc: 'الإشراف على إنشاء مطار نجران بتكليف من هيئة الطيران المدني.', fullDesc: 'كُلِّفت شركة خطيب وعلمي من قِبل الهيئة العامة للطيران المدني بالإشراف على إنشاء مطار نجران. يتضمن المشروع تصميم المدارج، المباني الرئيسية، والخدمات اللوجستية التي تدعم حركة المسافرين بكفاءة عالية.' },
             en: { category: 'Infrastructure', name: 'Najran Airport', location: 'Saudi Arabia', shortDesc: 'Supervision of Najran Airport construction for the Civil Aviation Authority.', fullDesc: 'Khatib & Alami was commissioned by the General Authority of Civil Aviation to supervise the construction of Najran Airport. The project includes runway design, main buildings, and logistics services supporting efficient passenger movement.' }
         },
@@ -76,7 +76,7 @@
             id: 'water-supply',
             category: 'infrastructure',
             featured: false,
-            image: 'images/projects/water-supply.png?v=9',
+            image: 'images/projects/water-supply.png?v=10',
             ar: { category: 'البنية التحتية', name: 'إمدادات المياه', location: 'كردستان', shortDesc: 'تطوير شبكات إمدادات المياه والصرف الصحي.', fullDesc: 'مشروع شامل لتطوير وتحديث شبكات إمدادات المياه والصرف الصحي في إقليم كردستان، يهدف لتوفير مياه نظيفة وآمنة للسكان وتحسين البنية التحتية للمياه.' },
             en: { category: 'Infrastructure', name: 'Water Supply', location: 'Kurdistan', shortDesc: 'Water supply and sewage network development.', fullDesc: 'A comprehensive project to develop and modernize water supply and sewage networks in the Kurdistan Region, aiming to provide clean and safe water for residents and improve water infrastructure.' }
         },
@@ -84,7 +84,7 @@
             id: 'riyadh-hotel',
             category: 'architecture',
             featured: false,
-            image: 'images/projects/riyadh-hotel.png?v=9',
+            image: 'images/projects/riyadh-hotel.png?v=10',
             ar: { category: 'الهندسة المعمارية', name: 'فندق الرياض', location: 'الجزائر', shortDesc: 'تصميم معماري وإنشائي لفندق فاخر في العاصمة الجزائرية.', fullDesc: 'تصميم معماري وإنشائي متكامل لفندق فاخر في العاصمة الجزائرية، يجمع بين الأصالة والحداثة مع مرافق عالمية المستوى ومعايير ضيافة استثنائية.' },
             en: { category: 'Architecture', name: 'Riyadh Hotel', location: 'Algeria', shortDesc: 'Architectural and structural design of a luxury hotel.', fullDesc: 'Comprehensive architectural and structural design of a luxury hotel in the Algerian capital, combining authenticity and modernity with world-class facilities and exceptional hospitality standards.' }
         },
@@ -92,7 +92,7 @@
             id: 'tamkeen-tower',
             category: 'architecture',
             featured: false,
-            image: 'images/projects/tamkeen-tower.png?v=9',
+            image: 'images/projects/tamkeen-tower.png?v=10',
             ar: { category: 'الهندسة المعمارية', name: 'برج تمكين', location: 'السعودية', shortDesc: 'تصميم وإشراف هندسي على بناء برج تمكين الشاهق.', fullDesc: 'تصميم وإشراف هندسي متكامل على بناء برج تمكين، أحد الأبراج الشاهقة في المملكة العربية السعودية، بتقنيات بناء متطورة وتصميم معماري عصري.' },
             en: { category: 'Architecture', name: 'Tamkeen Tower', location: 'Saudi Arabia', shortDesc: 'Engineering design and supervision of the iconic Tamkeen Tower.', fullDesc: 'Comprehensive engineering design and supervision of Tamkeen Tower, one of the tallest towers in Saudi Arabia, utilizing advanced construction techniques and modern architectural design.' }
         },
@@ -100,7 +100,7 @@
             id: 'jabal-omar',
             category: 'architecture',
             featured: true,
-            image: 'images/projects/jabal-omar.png?v=9',
+            image: 'images/projects/jabal-omar.png?v=10',
             ar: { category: 'الهندسة المعمارية', name: 'جبل عمر', location: 'السعودية', shortDesc: 'تطوير مشروع جبل عمر على مساحة تزيد عن مليون متر مربع.', fullDesc: 'تعمل شركة خطيب وعلمي على مشروع تطوير جبل عمر، الذي يمتد على مساحة تزيد عن مليون متر مربع. يهدف المشروع لتطوير بنية تحتية حديثة تخدم زوار مكة المكرمة بأعلى مستويات الراحة والجودة العمرانية.' },
             en: { category: 'Architecture', name: 'Jabal Omar', location: 'Saudi Arabia', shortDesc: 'Development spanning over one million square meters near the Holy Mosque.', fullDesc: 'Khatib & Alami is working on the Jabal Omar development project, spanning over one million square meters. The project aims to develop modern infrastructure serving visitors to Makkah with the highest levels of comfort and urban quality.' }
         },
@@ -108,7 +108,7 @@
             id: 'salil-factory',
             category: 'energy',
             featured: false,
-            image: 'images/projects/salil-factory.png?v=9',
+            image: 'images/projects/salil-factory.png?v=10',
             ar: { category: 'الطاقة', name: 'مصنع سليل للتعبئة', location: 'السعودية', shortDesc: 'إعداد مراجعة التصميم التفصيلي والمساعدة في شراء المواد ووثائق البناء لمصنع السائبة في السليل.', fullDesc: 'إعداد مراجعة التصميم التفصيلي بما في ذلك المساعدة في شراء المواد ووثائق البناء لمصنع السائبة في السليل. يمثل المشروع خطوة متقدمة في القطاع الصناعي لدعم الإنتاج المحلي.' },
             en: { category: 'Energy', name: 'Salil Packaging Factory', location: 'Saudi Arabia', shortDesc: 'Detailed design review and procurement assistance for the bulk plant in Salil.', fullDesc: 'Preparation of detailed design review, including procurement assistance and construction documentation for the bulk plant in Salil. The project represents a key industrial step supporting local production.' }
         },
@@ -116,7 +116,7 @@
             id: 'riyadh-services',
             category: 'electronic-services',
             featured: true,
-            image: 'images/projects/riyadh-services.png?v=9',
+            image: 'images/projects/riyadh-services.png?v=10',
             ar: { category: 'الخدمات الإلكترونية', name: 'برنامج الخدمات بالرياض', location: 'السعودية', shortDesc: 'بناء ونشر نظم المعلومات الجغرافية لخدمة قطاع الأعمال ورفع الكفاءة.', fullDesc: 'الهدف من نشر نظم المعلومات الجغرافية هو بناء قاعدة لنظام المؤسسة الذي سيتم دمجه مع أنظمة متعددة لخدمة قطاع الأعمال ورفع كفاءة الخدمات الإلكترونية بالمنطقة.' },
             en: { category: 'Electronic Services', name: 'Riyadh Services Program', location: 'Saudi Arabia', shortDesc: 'Deploying GIS to serve the business sector and improve service efficiency.', fullDesc: 'The deployment of GIS aims to build an enterprise system integrated with multiple platforms to serve the business sector and raise the efficiency of electronic services in Riyadh.' }
         }
@@ -124,9 +124,9 @@
 
     // VR Data
     const vrData = [
-        { name: { ar: 'مول العائلة', en: 'Family Mall' }, image: 'images/projects/vr-family-mall.png?v=9', link: 'https://maps.app.goo.gl/ZwNfmAv9Sau8GWFe7' },
-        { name: { ar: 'الوحدة مول', en: 'Al Wahda Mall' }, image: 'images/projects/vr-alwahda-mall.png?v=9', link: 'https://maps.app.goo.gl/oEdzmyBDZuj4JMLZ6' },
-        { name: { ar: 'فندق فيرمونت', en: 'Fairmont Hotel' }, image: 'images/projects/vr-fairmont.png?v=9', link: 'https://maps.app.goo.gl/eFgmSJ1jTCtz4dre9' }
+        { name: { ar: 'مول العائلة', en: 'Family Mall' }, image: 'images/projects/vr-family-mall.png?v=10', link: 'https://maps.app.goo.gl/ZwNfmAv9Sau8GWFe7' },
+        { name: { ar: 'الوحدة مول', en: 'Al Wahda Mall' }, image: 'images/projects/vr-alwahda-mall.png?v=10', link: 'https://maps.app.goo.gl/oEdzmyBDZuj4JMLZ6' },
+        { name: { ar: 'فندق فيرمونت', en: 'Fairmont Hotel' }, image: 'images/projects/vr-fairmont.png?v=10', link: 'https://maps.app.goo.gl/eFgmSJ1jTCtz4dre9' }
     ];
 
     /* ==========================================

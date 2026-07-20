@@ -272,7 +272,9 @@
        STATE
     ========================================== */
     let currentLang = localStorage.getItem('ka-lang') || 'ar';
-    let currentPage = 'home';
+    var validPages = ['home', 'about', 'projects', 'contact'];
+    let currentPage = validPages.indexOf(localStorage.getItem('ka-page')) !== -1
+        ? localStorage.getItem('ka-page') : 'home';
     let fontScale = parseFloat(localStorage.getItem('ka-font-scale') || '1');
     let darkMode = localStorage.getItem('ka-dark-mode') === 'true';
     let scrollObserver = null;
@@ -341,7 +343,9 @@
        NAVIGATION
     ========================================== */
     function navigate(pageId) {
+        if (validPages.indexOf(pageId) === -1) pageId = 'home';
         currentPage = pageId;
+        localStorage.setItem('ka-page', pageId);
         document.querySelectorAll('.page-view').forEach(function (p) { p.classList.remove('active'); });
         var target = document.getElementById(pageId);
         if (target) target.classList.add('active');
@@ -591,7 +595,7 @@
         if (darkMode) applyDarkMode();
 
         setLanguage(currentLang, false);
-        navigate('home');
+        navigate(currentPage);
 
         initMobileMenu();
         initNavScroll();

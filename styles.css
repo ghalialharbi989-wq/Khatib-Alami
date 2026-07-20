@@ -606,13 +606,9 @@ select:focus-visible {
     background: var(--bg-section) !important;
     border-color: var(--border-light) !important;
 }
-/* Dark mode: render logos as clean white silhouettes on the dark background
-   (their white backgrounds are now transparent) instead of white cards. */
+/* Dark mode: keep logos in their original brand colours on the dark
+   background (their white backgrounds are now transparent — no white card). */
 .dark-mode .partners-logo {
-    filter: brightness(0) invert(1);
-    opacity: 0.72;
-}
-.dark-mode .partners-logo:hover {
     opacity: 1;
 }
 

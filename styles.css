@@ -75,15 +75,23 @@ h1, h2, h3, h4, h5, h6, p, span, a, li, label {
 html {
     font-size: calc(16px * var(--font-scale));
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 body {
     font-family: var(--font-family);
     background-color: var(--bg-body);
     color: var(--text-body);
     overflow-x: hidden;
+    max-width: 100%;
     margin: 0;
     line-height: 1.6;
 }
+/* Direction-aware "read more / view all" arrow: authored as left (RTL
+   forward); mirror it in LTR so it points in the reading direction. */
+.dir-arrow { transition: transform 0.3s ease; }
+[dir="ltr"] .dir-arrow { transform: scaleX(-1); }
+.group:hover .dir-arrow { transform: translateX(-6px); }
+[dir="ltr"] .group:hover .dir-arrow { transform: scaleX(-1) translateX(-6px); }
 
 /* --- Skip to Content Link --- */
 .skip-link {
@@ -757,6 +765,46 @@ select:focus-visible {
     /* Keep the hero headline comfortable on the smallest phones */
     #home header h1,
     #home .hero-bg h1 { font-size: 2.6rem; line-height: 1.12; }
+}
+
+/* ============================================
+   Compact 2-up cards + sizing tuned for phones
+   ============================================ */
+@media (max-width: 640px) {
+    /* Page/section headings a touch smaller so nothing feels oversized */
+    .text-5xl { font-size: 2.4rem !important; line-height: 1.12; }
+    .text-4xl { font-size: 1.85rem !important; line-height: 1.2; }
+    .text-3xl { font-size: 1.55rem !important; line-height: 1.25; }
+    .hero-mini-bg h1 { font-size: 2.2rem !important; }
+
+    /* Featured projects (home) — image + title, compact 2-up */
+    #featured-projects-grid .h-60 { height: 116px !important; }
+    #featured-projects-grid .p-6 { padding: 0.7rem !important; }
+    #featured-projects-grid h3 { font-size: 0.95rem !important; line-height: 1.3; }
+    #featured-projects-grid .text-sm { font-size: 0.68rem !important; margin-bottom: 0.15rem !important; }
+
+    /* All-projects cards — compact 2-up */
+    .project-card .project-image { height: 116px !important; }
+    .project-item .p-5 { padding: 0.7rem !important; }
+    .project-item .rounded-full { font-size: 0.6rem !important; padding: 0.12rem 0.5rem !important; }
+    .project-item h5 { font-size: 0.9rem !important; margin-top: 0.4rem !important; line-height: 1.3; }
+    .project-item .p-5 > p { display: none !important; }        /* description → modal keeps full text */
+    .project-item .mt-4 { margin-top: 0.5rem !important; padding-top: 0.5rem !important; }
+    .project-item .mt-4 span { font-size: 0.62rem !important; }
+    .project-item .mt-4 button { font-size: 0.65rem !important; }
+    .project-item .mt-4 .text-xs i { display: none; }
+
+    /* VR cards — compact 2-up */
+    #vr-grid .h-56 { height: 118px !important; }
+    #vr-grid .p-6 { padding: 0.6rem !important; }
+    #vr-grid h4 { font-size: 0.85rem !important; }
+    #vr-grid .w-16.h-16 { width: 46px !important; height: 46px !important; }
+
+    /* Neutralize decorative offset layers so they can't push page width
+       (the real cause of the right-side white strip on some mobile browsers) */
+    [class*="-inset-4"], [class*="-left-5"] { display: none !important; }
+    [class*="-right-6"] { right: 0 !important; }
+    [class*="-bottom-6"] { bottom: 0.25rem !important; }
 }
 
 /* --- Print --- */

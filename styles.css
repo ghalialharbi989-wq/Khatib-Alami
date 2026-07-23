@@ -768,7 +768,7 @@ select:focus-visible {
 }
 
 /* ============================================
-   Compact 2-up cards + sizing tuned for phones
+   Mobile: swipe carousels + compact grid + sizing
    ============================================ */
 @media (max-width: 640px) {
     /* Page/section headings a touch smaller so nothing feels oversized */
@@ -777,14 +777,41 @@ select:focus-visible {
     .text-3xl { font-size: 1.55rem !important; line-height: 1.25; }
     .hero-mini-bg h1 { font-size: 2.2rem !important; }
 
-    /* Featured projects (home) — image + title, compact 2-up */
-    #featured-projects-grid .h-60 { height: 116px !important; }
-    #featured-projects-grid .p-6 { padding: 0.7rem !important; }
-    #featured-projects-grid h3 { font-size: 0.95rem !important; line-height: 1.3; }
-    #featured-projects-grid .text-sm { font-size: 0.68rem !important; margin-bottom: 0.15rem !important; }
+    /* Featured + VR (home): one-row horizontal carousel you swipe,
+       with a peek of the next card. Contained scroll — no page overflow. */
+    #featured-projects-grid,
+    #vr-grid {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        overflow-y: visible;
+        scroll-snap-type: x mandatory;
+        gap: 0.85rem !important;
+        padding-bottom: 0.75rem;
+        margin-inline: -0.25rem;          /* let cards reach nearer the edges */
+        padding-inline: 0.25rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    #featured-projects-grid::-webkit-scrollbar,
+    #vr-grid::-webkit-scrollbar { display: none; }
+    #featured-projects-grid > *,
+    #vr-grid > * {
+        flex: 0 0 80% !important;
+        scroll-snap-align: start;
+    }
+    /* Comfortable card sizing inside the carousels */
+    #featured-projects-grid .h-60,
+    #featured-projects-grid .project-image { height: 175px !important; }
+    #featured-projects-grid .p-6 { padding: 0.9rem !important; }
+    #featured-projects-grid h3 { font-size: 1.1rem !important; line-height: 1.3; }
+    #vr-grid .h-56 { height: 175px !important; }
+    #vr-grid .p-6 { padding: 0.9rem !important; }
+    #vr-grid h4 { font-size: 1.05rem !important; }
+    #vr-grid .w-16.h-16 { width: 56px !important; height: 56px !important; }
 
-    /* All-projects cards — compact 2-up */
-    .project-card .project-image { height: 116px !important; }
+    /* Projects page — compact 2-up browse grid (the "show more" destination) */
+    #projects-grid .project-image { height: 116px !important; }
     .project-item .p-5 { padding: 0.7rem !important; }
     .project-item .rounded-full { font-size: 0.6rem !important; padding: 0.12rem 0.5rem !important; }
     .project-item h5 { font-size: 0.9rem !important; margin-top: 0.4rem !important; line-height: 1.3; }
@@ -793,12 +820,6 @@ select:focus-visible {
     .project-item .mt-4 span { font-size: 0.62rem !important; }
     .project-item .mt-4 button { font-size: 0.65rem !important; }
     .project-item .mt-4 .text-xs i { display: none; }
-
-    /* VR cards — compact 2-up */
-    #vr-grid .h-56 { height: 118px !important; }
-    #vr-grid .p-6 { padding: 0.6rem !important; }
-    #vr-grid h4 { font-size: 0.85rem !important; }
-    #vr-grid .w-16.h-16 { width: 46px !important; height: 46px !important; }
 
     /* Neutralize decorative offset layers so they can't push page width
        (the real cause of the right-side white strip on some mobile browsers) */

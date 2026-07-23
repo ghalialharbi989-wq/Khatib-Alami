@@ -40,7 +40,7 @@
     </script>
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="styles.css?v=18">
+    <link rel="stylesheet" href="styles.css?v=19">
 </head>
 <body class="antialiased flex flex-col min-h-screen">
 
@@ -66,33 +66,37 @@
     <!-- Navigation -->
     <nav class="glass-nav fixed w-full top-0 z-50" role="navigation" aria-label="القائمة الرئيسية">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
+            <div class="flex justify-between items-center h-20 relative">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center cursor-pointer group" onclick="navigate('home')" tabindex="0" role="button" aria-label="الصفحة الرئيسية - خطيب وعلمي">
                     <img src="logo.png" alt="شعار خطيب وعلمي" class="h-12 w-auto me-3 bg-white p-1 rounded transition-transform group-hover:scale-105">
                     <span class="text-black text-2xl font-extrabold tracking-wide logo-text" data-i18n="site.name">خطيب وعلمي</span>
                 </div>
 
-                <!-- Desktop Nav -->
-                <div class="hidden lg:flex items-center space-x-reverse space-x-8">
+                <!-- Desktop Nav — centered -->
+                <div class="hidden lg:flex items-center space-x-reverse space-x-8 absolute left-1/2 -translate-x-1/2">
                     <a onclick="navigate('home')" class="nav-link" data-page="home" tabindex="0" role="link" data-i18n="nav.home">الرئيسية</a>
                     <a onclick="navigate('about')" class="nav-link" data-page="about" tabindex="0" role="link" data-i18n="nav.about">من نحن</a>
                     <a onclick="navigate('projects')" class="nav-link" data-page="projects" tabindex="0" role="link" data-i18n="nav.projects">المشاريع</a>
                     <a onclick="navigate('contact')" class="nav-link" data-page="contact" tabindex="0" role="link" data-i18n="nav.contact">تواصل معنا</a>
-                    <button class="lang-toggle lang-toggle-btn" aria-label="تغيير اللغة">
-                        <i class="fas fa-globe" aria-hidden="true"></i>
-                        <span data-i18n="nav.lang">English</span>
-                    </button>
                 </div>
 
-                <!-- Mobile Menu Button -->
-                <div class="lg:hidden flex items-center gap-3">
-                    <button class="lang-toggle lang-toggle-btn !px-3 !py-2 text-sm" aria-label="تغيير اللغة">
-                        <i class="fas fa-globe" aria-hidden="true"></i>
-                    </button>
-                    <button id="mobile-menu-btn" class="text-darkGray hover:text-primary focus:outline-none p-2" aria-expanded="false" aria-controls="mobile-menu" data-i18n-aria="nav.menu" aria-label="القائمة">
-                        <i class="fas fa-bars text-2xl" aria-hidden="true"></i>
-                    </button>
+                <!-- End: language toggle (desktop) + mobile controls -->
+                <div class="flex items-center gap-3">
+                    <div class="hidden lg:block">
+                        <button class="lang-toggle lang-toggle-btn" aria-label="تغيير اللغة">
+                            <i class="fas fa-globe" aria-hidden="true"></i>
+                            <span data-i18n="nav.lang">English</span>
+                        </button>
+                    </div>
+                    <div class="lg:hidden flex items-center gap-3">
+                        <button class="lang-toggle lang-toggle-btn !px-3 !py-2 text-sm" aria-label="تغيير اللغة">
+                            <i class="fas fa-globe" aria-hidden="true"></i>
+                        </button>
+                        <button id="mobile-menu-btn" class="text-darkGray hover:text-primary focus:outline-none p-2" aria-expanded="false" aria-controls="mobile-menu" data-i18n-aria="nav.menu" aria-label="القائمة">
+                            <i class="fas fa-bars text-2xl" aria-hidden="true"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

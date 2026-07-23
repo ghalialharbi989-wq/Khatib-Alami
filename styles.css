@@ -719,32 +719,44 @@ select:focus-visible {
 
 /* --- Responsive --- */
 @media (max-width: 768px) {
-    .a11y-toolbar {
+    /* Dock the accessibility toolbar at the bottom as a horizontal bar.
+       The dir-specific selectors must override the desktop [dir] rules
+       (top:50% / translateY) — hence the explicit resets here. */
+    .a11y-toolbar { flex-direction: row; gap: 8px; }
+    [dir="rtl"] .a11y-toolbar,
+    [dir="ltr"] .a11y-toolbar {
         top: auto;
-        bottom: 80px;
+        bottom: 84px;
         transform: none;
-        flex-direction: row;
     }
-    [dir="rtl"] .a11y-toolbar { left: 10px; }
-    [dir="ltr"] .a11y-toolbar { right: 10px; }
+    [dir="rtl"] .a11y-toolbar { left: 12px; right: auto; }
+    [dir="ltr"] .a11y-toolbar { right: 12px; left: auto; }
     .a11y-btn {
-        width: 38px; height: 38px;
-        min-width: 38px; min-height: 38px;
-        font-size: 0.85rem;
+        width: 42px; height: 42px;
+        min-width: 42px; min-height: 42px;
+        font-size: 0.9rem;
     }
-    .back-to-top { bottom: 20px; width: 42px; height: 42px; }
-    [dir="rtl"] .back-to-top { left: 16px; }
-    [dir="ltr"] .back-to-top { right: 16px; }
-    .modal-content { max-height: 85vh; border-radius: 1rem; }
+    .back-to-top { bottom: 20px; width: 44px; height: 44px; }
+    [dir="rtl"] .back-to-top { left: 16px; right: auto; }
+    [dir="ltr"] .back-to-top { right: 16px; left: auto; }
+    .modal-content { max-height: 88vh; border-radius: 1rem; }
     .stat-number { font-size: 2rem; }
+
+    /* Tighter vertical rhythm on phones (desktop keeps its generous spacing) */
+    .py-24 { padding-top: 3.5rem !important; padding-bottom: 3.5rem !important; }
+    .py-20 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+    .py-16 { padding-top: 2.75rem !important; padding-bottom: 2.75rem !important; }
 }
 @media (max-width: 480px) {
-    .a11y-toolbar { gap: 4px; }
+    .a11y-toolbar { gap: 6px; }
     .a11y-btn {
-        width: 34px; height: 34px;
-        min-width: 34px; min-height: 34px;
-        font-size: 0.8rem;
+        width: 40px; height: 40px;
+        min-width: 40px; min-height: 40px;
+        font-size: 0.85rem;
     }
+    /* Keep the hero headline comfortable on the smallest phones */
+    #home header h1,
+    #home .hero-bg h1 { font-size: 2.6rem; line-height: 1.12; }
 }
 
 /* --- Print --- */

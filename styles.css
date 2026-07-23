@@ -798,7 +798,7 @@ select:focus-visible {
     #featured-projects-grid > *,
     #vr-grid > * {
         flex: 0 0 80% !important;
-        scroll-snap-align: start;
+        scroll-snap-align: center;   /* card settles in the middle of the screen */
     }
     /* Comfortable card sizing inside the carousels */
     #featured-projects-grid .h-60,
